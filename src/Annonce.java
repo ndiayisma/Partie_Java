@@ -57,12 +57,14 @@ public class Annonce {
     }
 
     public double prix() {
-        return logement.surfaceHabitable() * prixM2Habitable + logement.surfaceNonHabitable() * COEF_NON_HABITABLE;
+        return logement.surfaceHabitable() * prixM2Habitable + logement.surfaceNonHabitable() * prixM2Habitable * COEF_NON_HABITABLE;
     }
 
     @Override
     public String toString() {
-        return "";
+        return titre + "\nAnnonce " + reference + " du " + date + 
+        logement.toString() +
+        "\n" +  "Valeur du bien : " + prix() + " euros";
     }
 
 }

@@ -12,11 +12,7 @@ public class Vendeur {
         this.numeroTelephone = numeroTelephone;
     }
 
-    @Override
-    public String toString() {
-        return "Vendeur [email=" + email + ", nom=" + nom + ", numeroTelephone=" + numeroTelephone + ", prenom="
-                + prenom + "]";
-    }
+    
 
     public String getEmail() {
         return email;
@@ -26,7 +22,10 @@ public class Vendeur {
         return numeroTelephone;
     }
 
-    
+    @Override
+    public String toString() {
+        return "Contact : " + email + " / nom= " + nom + " / " + numeroTelephone;
+    }
 
     
 }

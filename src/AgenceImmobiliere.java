@@ -42,5 +42,6 @@ public class AgenceImmobiliere {
         //Affichage des annonces
         System.out.println(annonceAppartement);
         System.out.println(annonceMaison);
+        System.out.println(vendeur);
     }
 }

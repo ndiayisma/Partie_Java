@@ -6,8 +6,8 @@ abstract class BienImmobillier {
     private String ville;
     private String codePostal;
     private Vendeur vendeur;
-    private ArrayList<Piece> pieces = new ArrayList<Piece>();
-    double surfaceHabitable = 0;
+    public ArrayList<Piece> pieces = new ArrayList<Piece>();
+    
     
     
     
@@ -27,8 +27,11 @@ abstract class BienImmobillier {
     }
 
     public double surfaceHabitable() {
+        double surfaceHabitable = 0;
         for (Piece piece : pieces) {
-            surfaceHabitable += piece.Surface();
+            if (piece.getTypePiece().surfaceHabitable) {
+                surfaceHabitable += piece.Surface();
+            }
         }
         return surfaceHabitable;
     }
@@ -82,9 +85,9 @@ abstract class BienImmobillier {
 
     @Override
     public String toString() {
-        DecimalFormat numberFormat = new DecimalFormat("0.00");
-        return "\nLocalisation : " + adresse + ", " + codePostal + ville + ", " +  "\n" +
-                "\n \n Description du bien : \n" + pieces.toString() +
+        DecimalFormat numberFormat = new DecimalFormat("#.00");
+        return "\nLocalisation : " + adresse + ", " + codePostal + " " + ville +  "\n" +
+                "\n Description du bien : \n" + pieces.toString() +
                 "\nPour une surface habitable de : " + 
                 numberFormat.format(surfaceHabitable()) + 
                 " m² et une surface non habitable de : " +

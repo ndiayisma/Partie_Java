@@ -36,7 +36,7 @@ public class Maison extends BienImmobillier {
         if(piscine){
             resultat += " avec piscine ";
         } resultat += "sur un terrain de " + surfaceTerrain + " ";
-        resultat += super.toString();
+        resultat += ". " + super.toString();
         return resultat;
     }
 

@@ -1,3 +1,5 @@
+import java.text.DecimalFormat;
+
 public class Appartement extends BienImmobillier {
     private String etage;
     private boolean ascenseur;
@@ -14,9 +16,23 @@ public class Appartement extends BienImmobillier {
     }
 
     public String typeBien() {
+        int compteurPieces = 0;
         
-        String bien = " T";
-        return bien;
+        // Parcourir chaque pièce de l'appartement
+        for (Piece piece : this.pieces) { // Supposons que `pieces` est une collection de pièces
+            // Vérifier si la pièce est à comptabiliser
+            // Ceci est un exemple, adaptez-le selon la logique de détermination des pièces à comptabiliser
+            if (piece.getTypePiece().equals(TypePiece.CHAMBRE)) {
+                compteurPieces++;
+            }
+        }
+        
+        // Construire la chaîne de caractères à retourner
+        if (compteurPieces > 7) {
+            return "T7+";
+        } else {
+            return "T" + compteurPieces;
+        }
     }
 
     public String getEtage() {
@@ -30,10 +46,10 @@ public class Appartement extends BienImmobillier {
     @Override
     public String toString() {
         String resultat = "";
-        resultat = "Appartement de type" + typeBien();
+        resultat = "\nAppartement de type " + typeBien();
         if(ascenseur){
             resultat += " avec ascenseur ";
-        } resultat += "situé au " + etage + " ";
+        } resultat += " situé au " + etage + " ";
         resultat += super.toString();
         return resultat;
     }
