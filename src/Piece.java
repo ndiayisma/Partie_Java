@@ -18,7 +18,7 @@ abstract class Piece {
         this.niveau = niveau;
     }
 
-    abstract double calculerSurface();
+    abstract double Surface();
 
     public Piece(TypePiece typePiece, String niveau) {
         this.typePiece = typePiece;
