@@ -8,7 +8,7 @@ public class TypePiece {
     public static final String CAVE = "Cave";
 
     private String nom;
-    private boolean surfaceHabitable;
+    boolean surfaceHabitable;
     private boolean piece;
 
     public TypePiece(String nom, boolean surfaceHabitable, boolean piece) {

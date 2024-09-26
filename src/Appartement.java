@@ -1,4 +1,4 @@
-public class Appartement extends BienImmobilier {
+public class Appartement extends BienImmobillier {
     private String etage;
     private boolean ascenseur;
 
@@ -13,6 +13,12 @@ public class Appartement extends BienImmobilier {
         this.ascenseur = false;
     }
 
+    public String typeBien() {
+        
+        String bien = " T";
+        return bien;
+    }
+
     public String getEtage() {
         return etage;
     }
@@ -23,7 +29,13 @@ public class Appartement extends BienImmobilier {
 
     @Override
     public String toString() {
-        return "Appartement [etage=" + etage + ", toString()=" + super.toString() + "]";
+        String resultat = "";
+        resultat = "Appartement de type" + typeBien();
+        if(ascenseur){
+            resultat += " avec ascenseur ";
+        } resultat += "situé au " + etage + " ";
+        resultat += super.toString();
+        return resultat;
     }
     
 }

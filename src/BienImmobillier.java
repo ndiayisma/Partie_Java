@@ -7,6 +7,7 @@ abstract class BienImmobillier {
     private String codePostal;
     private Vendeur vendeur;
     private ArrayList<Piece> pieces = new ArrayList<Piece>();
+    double surfaceHabitable = 0;
     
     
     
@@ -26,7 +27,6 @@ abstract class BienImmobillier {
     }
 
     public double surfaceHabitable() {
-        double surfaceHabitable = 0;
         for (Piece piece : pieces) {
             surfaceHabitable += piece.Surface();
         }
@@ -36,7 +36,7 @@ abstract class BienImmobillier {
     public double surfaceNonHabitable() {
         double surfaceNonHabitable = 0;
         for (Piece piece : pieces) {
-            if (piece.getTypePiece() == TypePiece.GARAGE || piece.getTypePiece() == TypePiece.CAVE) {
+            if (!piece.getTypePiece().surfaceHabitable) {
                 surfaceNonHabitable += piece.Surface();
             }
         }
@@ -78,6 +78,7 @@ abstract class BienImmobillier {
     public void setPieces(ArrayList<Piece> pieces) {
         this.pieces = pieces;
     }
+    
 
     @Override
     public String toString() {
